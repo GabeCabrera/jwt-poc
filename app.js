@@ -5,7 +5,6 @@ const app = express();
 const PORT = 3000
 const SECRET_KEY = 'hush'
 
-
 /*  
   BEARER TOKEN FORMAT:
   Authorization: Bearer <access_token> 
@@ -45,7 +44,7 @@ app.post('/api/login', (req, res) => {
     password: 'password'
   };
 
-  jwt.sign({user}, SECRET_KEY, {expiresIn: '30s' }, (err, token) => {
+  jwt.sign({user}, SECRET_KEY, { expiresIn: '30s' }, (err, token) => {
     res.json({
       token
     });
@@ -61,7 +60,7 @@ app.post('/api/posts', verifyToken, (req, res) => {
         message: 'User Authenticated & post created.',
         authData
       });
-    }
+    };
   });
 });
 
