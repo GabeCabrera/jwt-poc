@@ -29,7 +29,7 @@ const verifyToken = (req, res, next) => {
 
 app.get('/api', (req, res) => {
   res.json({
-    message: '/'
+    message: 'Please navigate to /api/login to get an bearer token'
   });
 });
 
@@ -45,7 +45,7 @@ app.post('/api/login', (req, res) => {
     password: 'password'
   };
 
-  jwt.sign({user}, SECRET_KEY, {expiresIn: '25s' }, (err, token) => {
+  jwt.sign({user}, SECRET_KEY, {expiresIn: '30s' }, (err, token) => {
     res.json({
       token
     });
